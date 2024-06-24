@@ -18,7 +18,7 @@ function login() {
 
     if (localStorage.getItem(username) === password) {
         sessionStorage.setItem('user', username);
-        window.location.href = 'profile.html';
+        showProfile();
     } else {
         alert('Invalid username or password');
     }
@@ -26,26 +26,39 @@ function login() {
 
 function logout() {
     sessionStorage.removeItem('user');
-    window.location.href = 'index.html';
+    showAuth();
 }
 
 // Display functions
 function showRegister() {
-    document.getElementById('login').style.display = 'none';
+    document.getElementById('auth').style.display = 'none';
     document.getElementById('register').style.display = 'block';
 }
 
 function showLogin() {
     document.getElementById('register').style.display = 'none';
-    document.getElementById('login').style.display = 'block';
+    document.getElementById('auth').style.display = 'block';
 }
 
-function showMainPage() {
-    window.location.href = 'main.html';
+function showMain() {
+    document.getElementById('auth').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('profile').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    loadPosts();
 }
 
-function showProfilePage() {
-    window.location.href = 'profile.html';
+function showAuth() {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('profile').style.display = 'none';
+    document.getElementById('auth').style.display = 'block';
+}
+
+function showProfile() {
+    document.getElementById('auth').style.display = 'none';
+    document.getElementById('register').style.display = 'none';
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('profile').style.display = 'block';
 }
 
 // Post functions
@@ -112,20 +125,8 @@ function commentPost(index) {
 }
 
 // Initialize
-window.onload = function() {
-    if (window.location.pathname.endsWith('profile.html')) {
-        const user = sessionStorage.getItem('user');
-        if (!user) {
-            window.location.href = 'index.html';
-        } else {
-            document.getElementById('usernameDisplay').innerText = user;
-        }
-    } else if (window.location.pathname.endsWith('main.html')) {
-        const user = sessionStorage.getItem('user');
-        if (!user) {
-            window.location.href = 'index.html';
-        } else {
-            loadPosts();
-        }
-    }
-};
+if (sessionStorage.getItem('user')) {
+    showMain();
+} else {
+    showAuth();
+}
