@@ -169,7 +169,7 @@ body {
     border-bottom: 1px solid #dbdbdb;
 }
 
-#auth, #profile, #main {
+#auth, #profile, #main, #home {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
@@ -198,4 +198,4 @@ button:hover {
 
 .comment {
     margin-left: 10px;
-}
+    }
