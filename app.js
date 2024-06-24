@@ -18,7 +18,7 @@ function login() {
 
     if (localStorage.getItem(username) === password) {
         sessionStorage.setItem('user', username);
-        showMain();
+        window.location.href = 'profile.html';
     } else {
         alert('Invalid username or password');
     }
@@ -26,7 +26,7 @@ function login() {
 
 function logout() {
     sessionStorage.removeItem('user');
-    showAuth();
+    window.location.href = 'index.html';
 }
 
 // Display functions
@@ -40,15 +40,12 @@ function showLogin() {
     document.getElementById('login').style.display = 'block';
 }
 
-function showMain() {
-    document.getElementById('auth').style.display = 'none';
-    document.getElementById('main').style.display = 'block';
-    loadPosts();
+function showMainPage() {
+    window.location.href = 'main.html';
 }
 
-function showAuth() {
-    document.getElementById('main').style.display = 'none';
-    document.getElementById('auth').style.display = 'block';
+function showProfilePage() {
+    window.location.href = 'profile.html';
 }
 
 // Post functions
@@ -115,8 +112,20 @@ function commentPost(index) {
 }
 
 // Initialize
-if (sessionStorage.getItem('user')) {
-    showMain();
-} else {
-    showAuth();
-}
+window.onload = function() {
+    if (window.location.pathname.endsWith('profile.html')) {
+        const user = sessionStorage.getItem('user');
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('usernameDisplay').innerText = user;
+        }
+    } else if (window.location.pathname.endsWith('main.html')) {
+        const user = sessionStorage.getItem('user');
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            loadPosts();
+        }
+    }
+};
