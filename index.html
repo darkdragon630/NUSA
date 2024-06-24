@@ -3,17 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Clone</title>
+    <title>Instagram Clone - Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <div id="navbar">
-        <div class="navbar-item" onclick="showProfile()">Profile</div>
-        <div class="navbar-item" onclick="showHome()">Home</div>
-    </div>
-
-    <!-- Auth Container -->
     <div id="auth">
         <h2>Login</h2>
         <input type="text" id="loginUsername" placeholder="Username">
@@ -22,57 +15,12 @@
         <button onclick="showRegister()">Register</button>
     </div>
 
-    <!-- Register Container -->
     <div id="register" class="hidden">
         <h2>Register</h2>
         <input type="text" id="registerUsername" placeholder="Username">
         <input type="password" id="registerPassword" placeholder="Password">
         <button onclick="register()">Register</button>
         <button onclick="showLogin()">Login</button>
-    </div>
-
-    <!-- Main Container -->
-    <div id="main" class="hidden">
-        <!-- Stories -->
-        <div id="stories"></div>
-
-        <!-- Posts -->
-        <div id="posts"></div>
-
-        <!-- Footer -->
-        <div id="footer">
-            <i class="fas fa-home" onclick="showHome()"></i>
-            <i class="fas fa-search"></i>
-            <i class="fas fa-plus-square"></i>
-            <i class="fas fa-heart"></i>
-            <i class="fas fa-user" onclick="showProfile()"></i>
-        </div>
-    </div>
-
-    <!-- Profile Container -->
-    <div id="profile" class="hidden">
-        <div id="profile-header">
-            <div class="profile-pic">A</div>
-            <div class="profile-info">
-                <div class="profile-username">tz.xii</div>
-                <div class="profile-stats">
-                    <div>
-                        <span>0</span>
-                        <div>Posts</div>
-                    </div>
-                    <div>
-                        <span>0</span>
-                        <div>Followers</div>
-                    </div>
-                    <div>
-                        <span>0</span>
-                        <div>Following</div>
-                    </div>
-                </div>
-                <button>Edit Profile</button>
-            </div>
-        </div>
-        <div id="profile-posts"></div>
     </div>
 
     <script src="script.js"></script>
