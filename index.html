@@ -3,92 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NUSA CHAT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Auth</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <div id="navbar">
-        <div class="navbar-item">NUSA CHAT</div>
-        <div class="navbar-item">
-            <i class="fa fa-heart"></i>
-            <i class="fa fa-comment"></i>
+    <div id="auth">
+        <div id="register" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="password" id="registerPassword" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+
+        <div id="login">
+            <h2>Login</h2>
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
         </div>
     </div>
-
-    <div id="stories">
-        <div class="story">
-            <div class="story-image">+</div>
-            <div class="story-username">Your Story</div>
-        </div>
-        <div class="story">
-            <div class="story-image"></div>
-            <div class="story-username">User1</div>
-        </div>
-        <div class="story">
-            <div class="story-image"></div>
-            <div class="story-username">User2</div>
-        </div>
-    </div>
-
-    <div id="posts">
-        <div class="post">
-            <div class="post-header">
-                <div class="post-user">cornn_06</div>
-                <div class="post-options">•••</div>
-            </div>
-            <div class="post-image"></div>
-            <div class="post-content">08? brp 😜</div>
-        </div>
-    </div>
-
-    <div id="footer">
-        <i class="fa fa-home" onclick="showHome()"></i>
-        <i class="fa fa-search"></i>
-        <i class="fa fa-plus-circle"></i>
-        <i class="fa fa-play-circle"></i>
-        <i class="fa fa-user" onclick="showProfile()"></i>
-    </div>
-
-    <!-- Profile Page -->
-    <div id="profile" class="hidden">
-        <div id="profile-header">
-            <div class="profile-pic">+</div>
-            <div class="profile-info">
-                <div class="profile-username">tz.xii</div>
-                <div class="profile-stats">
-                    <div>4 post</div>
-                    <div>47 followers</div>
-                    <div>843 following</div>
-                </div>
-                <button>Edit Profile</button>
-                <button>Share Profile</button>
-            </div>
-        </div>
-        <div id="profile-posts">
-            <!-- Example Posts -->
-            <div class="profile-post"></div>
-            <div class="profile-post"></div>
-            <div class="profile-post"></div>
-        </div>
-    </div>
-
-    <!-- Settings Page -->
-    <div id="settings" class="hidden">
-        <div id="settings-header">
-            <h1>Settings</h1>
-            <div class="settings-option">Account Center</div>
-            <div class="settings-option">Saved</div>
-            <div class="settings-option">Archive</div>
-            <div class="settings-option">Your Activity</div>
-            <div class="settings-option">Notifications</div>
-            <div class="settings-option">Time Spent</div>
-            <div class="settings-option">Privacy</div>
-            <div class="settings-option">Close Friends</div>
-            <div class="settings-option">Blocked Accounts</div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
